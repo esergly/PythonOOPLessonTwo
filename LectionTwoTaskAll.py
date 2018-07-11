@@ -25,24 +25,23 @@ class Student(Man):
 
 
 class Group:
-    #def __init__(self):
-
-    group = []
+    def __init__(self):
+        self.group = []
 
     def search(self, surname):
-        for i in range(len(self.group)):
-            if surname == self.group[i][1]:
-                print(self.group[i])
-                return self.group[i]
+        for element in self.group:
+            if surname in element:
+                print(element)
+                return element
             else:
                 print("This student is not found")
-                return 0
+                return None
 
     def add(self, *person):
         if len(self.group) > 10:
             print("The group is full!")
         else:
-            Group.group.append(person)
+            self.group.append(person)
         return self.group
 
     def remove(self, surname):
@@ -59,12 +58,12 @@ class Group:
         for i in range(len(self.group)):
             for j in range(len(self.group[i])):
                 temp += str(self.group[i][j]) + ', '
-        return "Group is: {temp}".format(temp)
+        return f"Group is: {temp}"
 
 # Create man
 man = Man("John", "Maldivian", "Male", 178, 69)
 print(man)
-# Create stedent
+# Create student
 student_test = Student("Jason", "Winn", "Male", 174, 81, "Oxford", "Politics", "P3")
 print(student_test)
 # Create group
@@ -79,9 +78,9 @@ group.add("Jack", "Nicholson", "Male", 167, 80, "Stanford", "Article", "A5")
 group.add("Paul", "Robinson", "Male", 165, 58, "San-Diego", "IT", "I2")
 group.add("Christine", "Ye", "Female", 160, 40, "San-Diego", "IT", "A3")
 group.add("Diana", "Kimble", "Female", 159, 45, "Stanford", "Article", "A1")
-print(Group.group)
+print(group)
 # Search and remove functions
 group.search("Winn")
 group.search("Silver")
 group.remove("Silver")
-print(Group.group)
+print(group)
