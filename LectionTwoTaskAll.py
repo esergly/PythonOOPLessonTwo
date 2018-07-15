@@ -29,10 +29,10 @@ class Group:
         self.group = []
 
     def search(self, surname):
-        for element in self.group:
-            if surname in element:
-                print(element)
-                return element
+        for student in self.group:
+            if student.surname == surname:
+                print(student)
+                return student
             else:
                 print("This student is not found")
                 return None
